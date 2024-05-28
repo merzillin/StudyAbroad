@@ -1,0 +1,56 @@
+/* Add your CSS styles here */
+        .university {
+            /*border: 1px solid #ccc;*/
+            
+            margin-bottom: 20px;
+        }
+        .university header{
+            background-color: #7f07f7;
+            color: #f4f1f1;
+            font-size: 40px;
+            
+        }
+        .university header p{
+            padding-left: 400px;
+            font-family: sans-serif;
+        }
+        .und-img {
+    
+            padding-left: 670px;
+            font-size: 30px;
+            font-family: Arial, Helvetica;
+        }
+        .university img {
+            padding-top: 15px;
+            padding-left: 550px;
+            padding-right: 10px;
+            width: 554px;
+            height: 672px;
+        }
+        .university-2 {
+            margin-left: 50px;
+            float: left;
+            width: 40%;
+            margin: 1%;
+            padding: 1%;
+            border: 1px solid #ccc;
+            text-align: center;
+            padding-bottom: 30px;
+            transition: transform 0.2s; /* Add smooth transition */
+            margin-bottom: 50px;
+        }
+        .part-2 h2{
+            font-size: 35px;
+        }
+        .part-2 p{
+            font-size: 35px;
+        }
+        .university-2 h2:hover {
+            transform: scale(0.9); /* Enlarge the image on hover */
+            }
+
+        /*.course {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }*/

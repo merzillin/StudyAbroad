@@ -1,0 +1,229 @@
+<?php 
+
+ require('../config/autoload.php'); 
+//include("header1.php");
+$courseid = $_GET['id'];
+$file=new FileUpload();
+$elements=array(
+    "course_name"=>"",
+    "duration"=>"",
+    "syllabus"=>"",
+    "eligibility"=>"",
+    "criteria"=>"",
+    "status"=>"",
+    "amount"=>"",
+    "university_id"=>"",
+    "category_id"=>"",
+    "country_id"=>"",);
+
+
+$form=new FormAssist($elements,$_POST);
+
+
+
+$dao=new DataAccess();
+
+$labels=array(
+                'course_name'=>"Course Name",
+                'duration'=>"Course Duration",
+                'syllabus'=>"Syllabus",
+                'eligibility'=>"Course eligibility",
+                'criteria'=>"criteria",
+                'status'=>"status",
+                'amount'=>"amount",
+                'university_id'=>"University ID",
+                'category_id'=>"Category ID",
+                'country_id'=>"Country ID",
+ );
+
+$rules=array(
+    "course_name"=>array("required"=>true,"minlength"=>2,"maxlength"=>50,),
+	"duration"=>array("required"=>true,"minlength"=>1,"maxlength"=>2,),
+    "syllabus"=> array('filerequired'=>true),  
+    "eligibility"=>array("required"=>true,"minlength"=>2,"maxlength"=>30,),
+    "criteria"=>array("required"=>true,"minlength"=>2,"maxlength"=>30,),
+    "status"=>array("required"=>true,"minlength"=>2,"maxlength"=>30,),
+    "amount"=>array("required"=>true,"maxlength"=>9,"integeronly"=>true,),
+    "country_id"=>array("required"=>false),
+    "university_id"=>array("required"=>false),
+    "category_id"=>array("required"=>false),
+   
+
+     
+);
+    
+    
+$validator = new FormValidator($rules,$labels);
+
+if(isset($_POST["btn_insert"]))
+{
+
+if($validator->validate($_POST))
+{
+	
+
+    $courseName = $_POST['course_name'];
+    $duration = $_POST['duration'];
+    $eligibility = $_POST['eligibility'];
+    $criteria = $_POST['criteria'];
+    $status = $_POST['status'];
+    $amount = $_POST['amount'];
+    $universityId = $_POST['university_id'];
+    $categoryId = $_POST['category_id'];
+    $countryId = $_POST['country_id'];
+
+    $sql = "UPDATE course SET 
+    course_name = '$courseName', 
+    duration = '$duration', 
+    eligibility = '$eligibility', 
+    criteria = '$criteria', 
+    status = '$status', 
+    amount = '$amount', 
+    university_id = '$universityId', 
+    category_id = '$categoryId', 
+    country_id = '$countryId' 
+    WHERE course_id = $courseid";
+
+    include "../user/dbconnect.php";
+    print_r($sql);
+    if ($conn->query($sql) === TRUE) {
+        echo "<script> alert('New record created successfully');</script> ";
+header('location:view_course.php');
+      } else {
+        {$msg="Registration failed";} ?>
+      
+      <span style="color:red;"><?php echo $msg; ?></span>
+<?php
+      }
+}}
+?>
+
+
+<html>
+<head>
+    <style>
+        input["submit"] {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+input["submit"]:hover {background-color: #3e8e41}
+
+input["submit"]:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+        </style>
+</head>
+<body>
+<div class="loading-spinner">
+<h2 class="row" >Update Category</h2>
+<form action="" method="POST" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-6">
+            Category Name:
+            <?php
+            $cid = $_GET['id'];
+            #echo $cid;
+            include "../user/dbconnect.php";
+            $query = "SELECT * FROM course WHERE course_id=$courseid";
+            $result = mysqli_query($conn, $query);
+
+            if ($result) {
+                $row = mysqli_fetch_assoc($result);
+                ?>
+                <input type="text" name="course_name" class="" value="<?php echo $row['course_name']; ?>">
+                <?= $validator->error('course_name'); ?>
+                Duration:
+                <input type="text" name="duration" class="" value="<?php echo $row['duration']; ?>">
+                <?= $validator->error('duration'); ?>
+                Eligibility:
+                <input type="text" name="eligibility" class="" value="<?php echo $row['eligibility']; ?>">
+                <?= $validator->error('eligibility'); ?>
+                Criteria:
+                <input type="text" name="criteria" class="" value="<?php echo $row['criteria']; ?>">
+                <?= $validator->error('criteria'); ?>
+                Status:
+                <input type="text" name="status" class="" value="<?php echo $row['status']; ?>">
+                <?= $validator->error('status'); ?>
+                Amount:
+                <input type="text" name="amount" class="" value="<?php echo $row['amount']; ?>">
+                <?= $validator->error('amount'); ?>
+                <br><br>
+                University:
+                <?php
+                $sql = "SELECT * FROM university";
+                $result = mysqli_query($conn, $sql);
+                if ($result) {
+                    echo "<select name='country'>";
+                    // Loop through the results to create the dropdown options
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<option value='" . $row['university_id'] . "'>" . $row['university_name'] . "</option>";
+                    }
+                    echo "</select>";
+                } else {
+                    echo "Error: Unable to fetch countries";
+                }
+                ?>
+                
+                <br><br>
+                Country:
+                <?php
+                $sql = "SELECT * FROM country";
+                $result = mysqli_query($conn, $sql);
+                if ($result) {
+                    echo "<select name='country'>";
+                    // Loop through the results to create the dropdown options
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<option value='" . $row['country_id'] . "'>" . $row['country_name'] . "</option>";
+                    }
+                    echo "</select>";
+                } else {
+                    echo "Error: Unable to fetch countries";
+                }
+                ?>
+                
+                <br><br>
+                Category:
+                <?php
+                $sql = "SELECT * FROM category";
+                $result = mysqli_query($conn, $sql);
+                if ($result) {
+                    echo "<select name='category'>";
+                    // Loop through the results to create the dropdown options
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<option value='" . $row['category_id'] . "'>" . $row['category_name'] . "</option>";
+                    }
+                    echo "</select>";
+                } else {
+                    echo "Error: Unable to fetch countries";
+                }
+                ?>
+                
+                <?php
+            }
+            ?>
+        </div>
+    </div>
+    <div class="row">
+        <input type="submit" name="btn_insert" value="Submit">
+    </div>
+</form>
+
+
+</body>
+
+</html>
+
+

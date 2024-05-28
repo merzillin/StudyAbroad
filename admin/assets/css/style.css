@@ -1,0 +1,218 @@
+body {
+  background-color: white;
+}
+div.row {
+  background-color: white;
+}
+
+ /*.fade {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.fade.show {
+  opacity: 1;
+}*/
+
+/* CSS for navigation bar */
+.sidebar {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #333;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+.sidebar img{
+  padding-left: 30px;
+}
+.sidebar p {
+  margin-top: 30px;
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #f2f2f2;
+  display: block;
+  transition: background-color 0.3s;
+}
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: 'Open Sans', sans-serif;
+  color: #f2f2f2;
+  display: block;
+  
+}
+
+
+
+.sidebar .box {
+  
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: background-color 0.5s;
+}
+
+.sidebar .box:hover {
+  background-color: #666;
+}
+
+.row {
+  margin-left: 200px;
+  margin-right:800px;
+  padding-top:100px;
+  padding-right:40px;
+  padding: 10px;
+}
+
+/* drop down code */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+nav ul li {
+  float: left;
+}
+
+nav ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #111;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* form customization */
+
+.col-md-6{
+  font-size: 20px;
+}
+.col-md-6 input[type=text]{
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+}
+.col-md-6 select {
+  width: 200px;
+  padding: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.col-md-6 select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  font-size: 12px;
+  color: #666;
+}
+.col-md-6 input[type=file]{
+  display: none;
+  display: inline-block;
+      padding: 10px 20px;
+      background-color: grey;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+}
+
+.row button{
+  display: inline-block;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+}
+
+.row button:hover {
+  background-color:rgb(5, 82, 15);
+}
+
+/* Change button styles when pressed */
+.row button:active {
+  background-color: #c0c0d0;
+}
+
+.table{
+  width: 100%;
+      border-collapse: collapse;
+}
+.table th{
+  background-color: #4CAF50;
+      color: white;
+      padding: 8px;
+      text-align: left;
+}
+.table td{
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/*.row h2{
+  
+    font-size: 24px;
+    color: #fcf9f9;
+    font-weight: bold;
+    margin-bottom: 16px;
+  
+}*/
+
+
+
+.row h2 {
+  color: #333;
+  font-size: 25px;
+  transition: all 0.3s ease;
+}
+.row h2:hover {
+  color: #ff0000;
+  background-color: #f5f5f5;
+  font-size: 28px;
+  font-weight: bold;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            function validate() {
+                var username = document.getElementById('uname').value;
+                var phone = document.getElementById('phone').value;
+                var password = document.getElementById('pass').value;
+
+                var lengthConstraint = /^.{10,}$/;
+                var uppercaseConstraint = /[A-Z]/;
+                var lowercaseConstraint = /[a-z]/;
+                var digitConstraint = /\d/;
+                var specialCharConstraint = /[!@#$%^&*()_+{}\[\]:;<>,.?|\-=\\\/]/;
+
+                if (username === '') {
+                    alert('Please enter a username');
+                    return false;
+                }
+
+                else if (phone === '' || isNaN(phone)) {
+                    alert('Please enter a valid phone number');
+                    return false;
+                }
+
+                else if (password === '') {
+                    alert('Please enter a password');
+                    return false;
+                }
+                else if(!lengthConstraint.test(password))
+                {
+                    alert("insufficent letters");
+                    return false;
+                }
+                else if(!uppercaseConstraint.test(password))
+                {
+                    alert("need 1 uppercase letter");
+                    return false;
+                }
+                else if(!lowercaseConstraint.test(password))
+                {
+                    alert("need 1 lowercase letter");
+                    return false;
+                }
+                else if(!digitConstraint.test(password))
+                {
+                    alert("need 1 digit");
+                    return false;
+                }
+                else if(!specialCharConstraint.test(password))
+                {
+                    alert("need 1 special character");
+                    return false;
+                }
+                else{
+                    alert("insertion successfully");
+                    return true;
+                }
+
+                // Additional validation logic can be added here
+
+                // If all validations pass, the form will be submitted
+                
+            }
+        </script>
+        <form method="post">
+            <label>username</label><br>
+            <input type="text" name="uname" id="uname"><br> <!-- Fixed typo here -->
+            <label>phone</label><br>
+            <input type="number" name="phone" id="phone"><br>
+            <label>password</label><br>
+            <input type="password" name="pass" id="pass"><br>
+            <input type="submit" name="submit" id="submit" onclick="return validate()"> 
+        </form>
+    </body>
+</html>

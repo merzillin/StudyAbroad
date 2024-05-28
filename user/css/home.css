@@ -1,0 +1,126 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(247, 241, 230);
+  }
+  .container {
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+  }
+  header {
+    background: #333;
+    color: #333;
+    
+    min-height: 70px;
+    border-bottom: 1px solid #e6e6e6;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  }
+  header img {
+    padding-left: 15px;
+    width: 300px;
+    height: 100px;
+  }
+  header img {
+    width: 70px; /* Set the width of the image */
+    height: 70px; /* Maintain aspect ratio */
+    transition: transform 0.6s; /* Add a smooth transition effect */
+  }
+  header a img:hover {
+    transform: scale(1.6); /* Increase the size of the image on hover */
+  }
+  header nav {
+    float: right;
+    margin-top: 30px;
+  }
+  header nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  header nav ul li {
+    display: inline;
+    margin: 0 15px;
+  }
+  header nav ul li a {
+    text-decoration: none;
+    font-family: sans-serif;
+    color: white;
+    
+  }
+  header nav ul li a:hover {
+    color: #0078ff;
+  }
+  
+  .main {
+    padding: 20px;
+  }
+  .main h1 {
+    margin-top: 40px;
+    font-size: 2.5em;
+  }
+  .main p {
+    font-size: 1.2em;
+    line-height: 1.6em;
+  }
+  .main img {
+    width: 100%;
+    height: auto;
+    margin-top: 0px;
+  }
+  .main button {
+    padding: 10px 20px;
+    background-color: #0078ff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+  .main button:hover {
+    background-color: #0055b3;
+  }
+  .container-1{
+    width: 100%; /* Set the width of the div */
+  height: 500px; /* Set the height of the div */
+  overflow: hidden; /* Hide any overflowing content */
+  position: relative; /* Establish positioning context for the image */
+  }
+.container-1 img {
+  
+  width: 100%;
+  height: 500px;
+  display: block;
+}
+.container-1:hover .text-overlay {
+  opacity: 1; /* Show the text on hover */
+}
+
+.text-overlay{
+  position: absolute;
+  top: 50%; /* Position the text vertically at 50% from the top */
+  left: 50%; /* Position the text horizontally at 50% from the left */
+  transform: translate(-50%, -30%); /* Center the text within the container */
+  opacity: 0; /* Initially hide the text */
+  transition: opacity 0.3s; /* Add a smooth transition effect for opacity */
+  font-size: 60px;
+  font-family: Georgia;
+  color: whitesmoke;
+}
+.container-1:hover .text-overlay-1 {
+  opacity: 1; /* Show the text on hover */
+}
+
+.text-overlay-1{
+  position: absolute;
+  top: 50%; /* Position the text vertically at 50% from the top */
+  left: 50%; /* Position the text horizontally at 50% from the left */
+  transform: translate(-15%, 60%); /* Center the text within the container */
+  opacity: 0; /* Initially hide the text */
+  transition: opacity 0.3s; /* Add a smooth transition effect for opacity */
+  font-size: 20px;
+  font-family: cursive;
+  color: whitesmoke;
+}
